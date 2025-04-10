@@ -6,12 +6,12 @@ import { Controller, useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import { z } from 'zod';
 import { Button } from '~/components/ui/button';
-import { FormErrorMessage, FormInputWrapper } from '~/components/ui/Form';
+import { FormErrorMessage, FormInputWrapper } from '~/components/ui/form';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 import { Text } from '~/components/ui/text';
 import { auth } from '~/services/firebase';
-import { AuthFormHeader, AuthFormWrapper } from '../common/AuthFormHeader';
+import { AuthFormHeader, AuthFormWrapper } from '../common/auth-form-wrapper';
 
 const signUpSchema = z
 	.object({
@@ -38,17 +38,14 @@ export const SignUpForm = () => {
 	});
 
 	const handleSignUp = async ({ email, password }: z.infer<typeof signUpSchema>) => {
-		setIsLoading(true);
-
 		try {
+			setIsLoading(true);
 			const credentials = await createUserWithEmailAndPassword(auth, email, password);
-
 			console.log('credentials', credentials);
-
 			const user = credentials.user;
 
 			if (user) {
-				router.push('/(app)');
+				router.push('/(stack)/(tabs)');
 				return;
 			}
 		} catch (error) {

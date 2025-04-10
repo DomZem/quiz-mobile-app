@@ -4,6 +4,7 @@ import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from '@react-navigation
 import { Slot } from 'expo-router';
 import * as React from 'react';
 import { Platform } from 'react-native';
+
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -47,18 +48,7 @@ export default function RootLayout() {
 
 	return (
 		<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-			{/* <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack>
-        <Stack.Screen
-          name='index'
-          options={{
-            title: 'Starter Base',
-            headerRight: () => <ThemeToggle />,
-          }}
-        />
-      </Stack> */}
 			<Slot />
-			{/* <PortalHost /> */}
 		</ThemeProvider>
 	);
 }
