@@ -19,7 +19,7 @@ export default function QuizDetailsScreen() {
 		return (
 			<View className='bg-background flex-1 flex flex-col gap-6 p-4'>
 				<View>
-					<Text className='text-2xl font-bold mb-2'>{quiz.name}</Text>
+					<Text className='text-2xl font-bold'>{quiz.name}</Text>
 					<Text className='text-lg mb-4'>{quiz.description}</Text>
 					<Button onPress={handleStartQuiz} className='w-full'>
 						<Text>Start Quiz</Text>
@@ -27,7 +27,7 @@ export default function QuizDetailsScreen() {
 				</View>
 
 				<View className='flex-1'>
-					<Text className='text-2xl font-bold mb-2'>Leaderboard</Text>
+					<Text className='text-2xl font-bold mb-4'>Leaderboard</Text>
 					<QuizPlayersList quizId={id as string} />
 				</View>
 			</View>

@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
 import { Card } from '~/components/ui/card';
 import { Text } from '~/components/ui/text';
+import { getFirstLetters } from '~/lib/utils';
 import { QuizPlayer } from '~/types/quiz';
 
 type QuizPlayerCardProps = {
@@ -15,12 +16,7 @@ export const QuizPlayerCard = ({ quizPlayer }: QuizPlayerCardProps) => {
 				<Avatar alt={`${quizPlayer.user_name}'s Avatar`} className='w-12 h-12'>
 					<AvatarImage source={{ uri: undefined }} />
 					<AvatarFallback>
-						<Text>
-							{quizPlayer.user_name
-								.split(' ')
-								.map((name) => name[0].toUpperCase())
-								.join('')}
-						</Text>
+						<Text>{getFirstLetters(quizPlayer.user_name)}</Text>
 					</AvatarFallback>
 				</Avatar>
 

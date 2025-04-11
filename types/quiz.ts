@@ -18,6 +18,7 @@ export type Answer = {
 export type QuizPlayer = {
 	id: string;
 	created_at: string;
+	updated_at: string;
 	quiz_id: string;
 	total_correct_answers: number;
 	total_questions: number;
